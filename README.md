@@ -5,7 +5,7 @@ Method to making run_analysis.R
 ### There are 2 scripts I uploaded
 1.  **run_analysis.R** is a function and will automatically write the tidy dataset as *tidyData.txt* in your working directory.  *tidyData.txt* is also included in this repo. 
 2.  **run_analysis2.r** is a function and will prompt you to choose the name of the tidy dataset and the location you would like to save it
-
+###### Both will produce oneSet the tidyData data sets in the global environment for easy experimentation
 
 ### The following packages will be automatically installed by either script
 * data.table
