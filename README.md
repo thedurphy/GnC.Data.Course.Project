@@ -17,13 +17,13 @@ Method to making run_analysis.R
 ####  I performed the following steps manually to create the requested datasets.  Hopefully it will shed some insight on my thought process
 
 ## Importing the Data
-### Imported the subject list from both the *train* and *test* directories into separate variables
+### 1.  Imported the subject list from both the *train* and *test* directories into separate variables
 1. > trainSubject <- read.table("UCI HAR Dataset/train/subject_train.txt", stringsAsFactor = F)
 2. > testSubject <- read.table("UCI HAR Dataset/test/subject_test.txt", stringsAsFactor = F)
 3. > names(testSubject) <- "Subject"
 4. > names(trainSubject) <- "Subject"
 
-### Imported the y files from *train* and *test* directories into separate variables and labeled them using the *recode()* function from the **car** package
+### 2.  Imported the y files from *train* and *test* directories into separate variables and labeled them using the *recode()* function from the **car** package
 1. > ytrain <- read.table("UCI HAR Dataset/train/y_train.txt", stringsAsFactor = F)
 2. > ytest <- read.table("UCI HAR Dataset/test/y_test.txt", stringsAsFactor = F)
 3. > ytrain <- recode(ytrain$V1, "'1' = 'Walking';
@@ -43,14 +43,14 @@ Method to making run_analysis.R
 7. > names(ytrain) <- "Activity"  *(renamed the column)*
 8. > names(ytest) <- "Activity"    *(renamed the column)*
 
-### Imported the features text and with *grep()* found exactly which variable indices were needed in the tidy data (mean, standard deviation)
+### 3.  Imported the features text and with *grep()* found exactly which variable indices were needed in the tidy data (mean, standard deviation)
 1. > features <- read.table("UCI HAR Dataset/features.txt", stringsAsFactor = F)
 2. > variables <- sort(c(grep("mean()", features$V2, value = F, fixed = T),
 							grep("std()", features$V2, value = F, fixed = T)))
 3. > featurenames <- features[variables,]$V2    *(this created a vector of the names of the variables needed; used later)*
 
 
-###  Imported the X *train* and *test* datasets using the previously created _variables_ vector to subset the specific columns the labeled the columns
+###  4.  Imported the X *train* and *test* datasets using the previously created _variables_ vector to subset the specific columns the labeled the columns
 1. > xtrain <- read.table("UCI HAR Dataset/train/X_train.txt")[variables]
 2. > xtest <- read.table("UCI HAR Dataset/test/X_test.txt")[variables]
 3. > names(xtrain) <- featurenames
@@ -58,15 +58,15 @@ Method to making run_analysis.R
 
 ## Arranging the datasets into 1
 
-### Combined all the *train* sets; combined all the *test* sets   *(by column)*
+### 1.  Combined all the *train* sets; combined all the *test* sets   *(by column)*
 1. > trainSet <- data.frame(trainSubject, ytrain, xtrain)
 2. > testSet <- data.frame(testSubject, ytest, xtest)
 
-###. Combined the remaining sets into one, by row
+### 2.  Combined the remaining sets into one, by row
 1. > oneSet <- rbind(trainSet, testSet)
 2. > oneSet$Activity <- as.character(oneSet$Activity)   (*the recode()* turns the Activity column into factors, this returns it to characters)
 
-#### Now I will rename the columns of **oneSet** so it looks a little tidier.  
+### 3.  Now I will rename the columns of **oneSet** so it looks a little tidier.  
 3. > oSnames <- names(oneSet)
 4. > oSnames <- gsub("[.]", "", oSnames)                *(removed the periods)*
 5. > names(oneSet) <- oSnames                   *(oSnames is a vector of the column names in the final data sets)*
