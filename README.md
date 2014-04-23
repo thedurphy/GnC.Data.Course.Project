@@ -56,7 +56,7 @@ Method to making run_analysis.R
 
 ###. Combined the remaining sets into one, by row
 1. > oneSet <- rbind(trainSet, testSet)
-2. > oneSet$Activity <- levels(oneSet$Activity)#[oneSet$Activity]   (the recode() turns the Activity column into factors, this returns it to characters)
+2. > oneSet$Activity <- levels(oneSet$Activity)(brackets)oneSet$activity(brackets)   (the recode() turns the Activity column into factors, this returns it to characters)
 #### Now I will rename the columns of **oneSet** so it looks a little tidier.  
 3. > oSnames <- names(oneSet)
 4. > oSnames <- gsub("[.]", "", oSnames)                *(removed the periods)*
