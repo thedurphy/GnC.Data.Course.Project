@@ -94,7 +94,7 @@ Method to making run_analysis.R
 18. fBodyGyroMag
 19. fBodyGyroJerkMag
 
-* A couple of things to note
+#### A couple of things to note
 1.  the 'XYZ' denotes the 3 dimensions of data being recorded so they will have their own columns
 2.  For expediency, the data sets will only include the *mean* and the *standard deviation* columns from the primary raw data which were 
 denoted by *mean()* and *std()*
@@ -107,15 +107,15 @@ denoted by *mean()* and *std()*
 2. fBodyBodyGyroJerkMagstd
 3. tGravityAccmeanX
 
-..* the first letter (t or f) denotes '(t)time domain signal' or whether '(f)Fast Fourier  Transform (FFT)' was applied to it
-..* the results within the '(t) time domain signals' were then separated into 'Body' and 'Gravity' measurements as you can see in Examples 1 & 2
-..* the 3rd part of the variable denotes which piece of equiptment from the cellphone was used for recording the data:
-.....*Acc = Accelerometer; Gyro = Gyroscope
-..* the variables with 'Jerk' denotes a values derived from body linear acceleration and angular velocity over time
-..* the next part shows whether the value is the 'Mean' or the 'Standard Deviation'; mean, std, respectively
-..* if the variable has an X, Y, or Z, it denotes the dimensional component being measured
+1. the first letter (t or f) denotes '(t)time domain signal' or whether '(f)Fast Fourier  Transform (FFT)' was applied to it
+2. the results within the '(t) time domain signals' were then separated into 'Body' and 'Gravity' measurements as you can see in Examples 1 & 2
+3. the 3rd part of the variable denotes which piece of equiptment from the cellphone was used for recording the data:
+4. Acc = Accelerometer; Gyro = Gyroscope
+5. the variables with 'Jerk' denotes a values derived from body linear acceleration and angular velocity over time
+6. the next part shows whether the value is the 'Mean' or the 'Standard Deviation'; mean, std, respectively
+7. if the variable has an X, Y, or Z, it denotes the dimensional component being measured
 
-* The Data Sets
+#### The Data Sets
 
 ..There are 2 data sets the script will out put into the Global Environment to work with: **oneSet** and **tidyData** (tidyData will be opened to View)
 
@@ -127,50 +127,50 @@ denoted by *mean()* and *std()*
 
 # The script
 
-run_analysis <- function(){
-    require(data.table)
-	require(reshape2)
-	require(car)
-trainSubject <- read.table("UCI HAR Dataset/train/subject_train.txt", stringsAsFactor = F)
-testSubject <- read.table("UCI HAR Dataset/test/subject_test.txt", stringsAsFactor = F)
-names(testSubject) <- "Subject"
-names(trainSubject) <- "Subject"
-ytrain <- read.table("UCI HAR Dataset/train/y_train.txt", stringsAsFactor = F)
-ytest <- read.table("UCI HAR Dataset/test/y_test.txt", stringsAsFactor = F)
-ytrain <- recode(ytrain$V1, "'1' = 'Walking';
-    									'2' = 'Walking Upstairs';
-										'3' = 'Walking Downstairs';
-										'4' = 'Sitting';
-										'5' = 'Standing';
-										'6' = 'Laying'")
-ytest <- recode(ytest$V1, "'1' = 'Walking';
-    									'2' = 'Walking Upstairs';
-										'3' = 'Walking Downstairs';
-										'4' = 'Sitting';
-										'5' = 'Standing';
-										'6' = 'Laying'")
-ytrain <- data.frame(ytrain)
-ytest <- data.frame(ytest)
-names(ytrain) <- "Activity"
-names(ytest) <- "Activity"
-features <- read.table("UCI HAR Dataset/features.txt", stringsAsFactor = F)
-variables <- sort(c(grep("mean()", features$V2, value = F, fixed = T),
-                    grep("std()", features$V2, value = F, fixed = T)))
-featurenames <- features[variables,]$V2
-xtrain <- read.table("UCI HAR Dataset/train/X_train.txt")[variables]
-xtest <- read.table("UCI HAR Dataset/test/X_test.txt")[variables]
-names(xtrain) <- featurenames
-names(xtest) <- featurenames
-trainSet <- data.frame(trainSubject, ytrain, xtrain)
-testSet <- data.frame(testSubject, ytest, xtest)
-oneSet <<- rbind(trainSet, testSet)
-oneSet$Activity <- levels(oneSet$Activity)[oneSet$Activity]
-oSnames <- names(oneSet)
-oSnames <- gsub("[.]", "", oSnames)
-names(oneSet) <- oSnames
-molten = melt(oneSet, id = c("Subject", "Activity"))
-names(molten) <- c("Subject", "Activity", "Variable", "Value")
-tidyData <<- dcast(molten, formula = Subject + Activity ~ Variable, value.var = "Value", mean)
-View(tidyData)
-}
+   run_analysis <- function(){
+       require(data.table)
+	   require(reshape2)
+       require(car)
+   trainSubject <- read.table("UCI HAR Dataset/train/subject_train.txt", stringsAsFactor = F)
+   testSubject <- read.table("UCI HAR Dataset/test/subject_test.txt", stringsAsFactor = F)
+   names(testSubject) <- "Subject"
+   names(trainSubject) <- "Subject"
+   ytrain <- read.table("UCI HAR Dataset/train/y_train.txt", stringsAsFactor = F)
+   ytest <- read.table("UCI HAR Dataset/test/y_test.txt", stringsAsFactor = F)
+   ytrain <- recode(ytrain$V1, "'1' = 'Walking';
+    							'2' = 'Walking Upstairs';
+								'3' = 'Walking Downstairs';
+								'4' = 'Sitting';
+								'5' = 'Standing';
+								'6' = 'Laying'")
+   ytest <- recode(ytest$V1, "'1' = 'Walking';
+    						  '2' = 'Walking Upstairs';
+							  '3' = 'Walking Downstairs';
+							  '4' = 'Sitting';
+							  '5' = 'Standing';
+							  '6' = 'Laying'")
+   ytrain <- data.frame(ytrain)
+   ytest <- data.frame(ytest)
+   names(ytrain) <- "Activity"
+   names(ytest) <- "Activity"
+   features <- read.table("UCI HAR Dataset/features.txt", stringsAsFactor = F)
+   variables <- sort(c(grep("mean()", features$V2, value = F, fixed = T),
+                       grep("std()", features$V2, value = F, fixed = T)))
+   featurenames <- features[variables,]$V2
+   xtrain <- read.table("UCI HAR Dataset/train/X_train.txt")[variables]
+   xtest <- read.table("UCI HAR Dataset/test/X_test.txt")[variables]
+   names(xtrain) <- featurenames
+   names(xtest) <- featurenames
+   trainSet <- data.frame(trainSubject, ytrain, xtrain)
+   testSet <- data.frame(testSubject, ytest, xtest)
+   oneSet <<- rbind(trainSet, testSet)
+   oneSet$Activity <- levels(oneSet$Activity)[oneSet$Activity]
+   oSnames <- names(oneSet)
+   oSnames <- gsub("[.]", "", oSnames)
+   names(oneSet) <- oSnames
+   molten = melt(oneSet, id = c("Subject", "Activity"))
+   names(molten) <- c("Subject", "Activity", "Variable", "Value")
+   tidyData <<- dcast(molten, formula = Subject + Activity ~ Variable, value.var = "Value", mean)
+   View(tidyData)
+   }
 
