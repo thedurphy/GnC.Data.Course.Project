@@ -101,8 +101,8 @@ denoted by *mean()* and *std()*
 3. For example: the first column of the data-sets were *originally* **tBodyAcc-mean()-X**
 4. For tidiness, it has been converted into **tBodyAccmeanY**
 
-* Let's move left to right on the variables to define what they mean.
-####Examples:
+#### Let's move left to right on the variables to define what they mean.
+###### Examples:
 1. tBodyAccmeanY
 2. fBodyBodyGyroJerkMagstd
 3. tGravityAccmeanX
