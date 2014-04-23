@@ -1,11 +1,19 @@
 Method to making run_analysis.R
 ===============================
-# First Draft (before writing the script, do every step yourself)
+### *Couple of notes before starting*
 
-### You will need to install and load the following packages
+### There are 2 scripts I uploaded
+1.  run_analysis.R is a function and will automatically write the tidy dataset as 'tidyData.txt' in your working directory
+2.  run_analysis2.R is a function and will prompt you to choose the name of the tidy dataset and the location you would like to save it
+
+
+### The following packages will be automatically installed by either script
 * data.table
 * car
 * reshape2
+
+
+# First Draft (before writing the script, do every step yourself)
 
 
 ## Importing the Data
