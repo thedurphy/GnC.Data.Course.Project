@@ -127,24 +127,24 @@ denoted by *mean()* and *std()*
 
 # The script
 
-   run_analysis <- function(){
-       require(data.table)
-	   require(reshape2)
+⋅⋅⋅run_analysis <- function(){
+⋅⋅⋅    require(data.table)
+⋅⋅⋅    require(reshape2)
        require(car)
-   trainSubject <- read.table("UCI HAR Dataset/train/subject_train.txt", stringsAsFactor = F)
-   testSubject <- read.table("UCI HAR Dataset/test/subject_test.txt", stringsAsFactor = F)
-   names(testSubject) <- "Subject"
-   names(trainSubject) <- "Subject"
-   ytrain <- read.table("UCI HAR Dataset/train/y_train.txt", stringsAsFactor = F)
-   ytest <- read.table("UCI HAR Dataset/test/y_test.txt", stringsAsFactor = F)
-   ytrain <- recode(ytrain$V1, "'1' = 'Walking';
-    							'2' = 'Walking Upstairs';
-								'3' = 'Walking Downstairs';
-								'4' = 'Sitting';
-								'5' = 'Standing';
-								'6' = 'Laying'")
-   ytest <- recode(ytest$V1, "'1' = 'Walking';
-    						  '2' = 'Walking Upstairs';
+⋅⋅⋅trainSubject <- read.table("UCI HAR Dataset/train/subject_train.txt", stringsAsFactor = F)
+⋅⋅⋅testSubject <- read.table("UCI HAR Dataset/test/subject_test.txt", stringsAsFactor = F)
+⋅⋅⋅names(testSubject) <- "Subject"
+⋅⋅⋅names(trainSubject) <- "Subject"
+⋅⋅⋅ytrain <- read.table("UCI HAR Dataset/train/y_train.txt", stringsAsFactor = F)
+⋅⋅⋅ytest <- read.table("UCI HAR Dataset/test/y_test.txt", stringsAsFactor = F)
+⋅⋅⋅ytrain <- recode(ytrain$V1, "'1' = 'Walking';
+⋅⋅⋅ 							'2' = 'Walking Upstairs';
+⋅⋅⋅ 							'3' = 'Walking Downstairs';
+⋅⋅⋅								'4' = 'Sitting';
+⋅⋅⋅								'5' = 'Standing';
+⋅⋅⋅								'6' = 'Laying'")
+⋅⋅⋅ytest <- recode(ytest$V1, "'1' = 'Walking';
+⋅⋅⋅    						  '2' = 'Walking Upstairs';
 							  '3' = 'Walking Downstairs';
 							  '4' = 'Sitting';
 							  '5' = 'Standing';
