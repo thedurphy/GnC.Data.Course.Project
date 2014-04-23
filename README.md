@@ -5,7 +5,6 @@ Method to making run_analysis.R
 ### You will need to install and load the following packages
 * data.table
 * car
-* plyr
 * reshape2
 
 
