@@ -50,13 +50,13 @@ Method to making run_analysis.R
 
 ## Arranging the datasets into 1
 
-### Combined all the *train* sets; combined all the *test* sets   (by column)
+### Combined all the *train* sets; combined all the *test* sets   *(by column)*
 1. > trainSet <- data.frame(trainSubject, ytrain, xtrain)
 2. > testSet <- data.frame(testSubject, ytest, xtest)
 
 ###. Combined the remaining sets into one, by row
 1. > oneSet <- rbind(trainSet, testSet)
-2. > oneSet$Activity <- as.character(oneSet$Activity)   (the recode() turns the Activity column into factors, this returns it to characters)
+2. > oneSet$Activity <- as.character(oneSet$Activity)   (*the recode()* turns the Activity column into factors, this returns it to characters)
 
 #### Now I will rename the columns of **oneSet** so it looks a little tidier.  
 3. > oSnames <- names(oneSet)
