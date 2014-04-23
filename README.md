@@ -11,36 +11,36 @@ Method to making run_analysis.R
 
 ## Importing the Data
 1. Imported the subject list from both the *train* and *test* directories into separate variables
-..1. > trainSubject <- read.table("UCI HAR Dataset/train/subject_train.txt", stringsAsFactor = F)
-..2. > testSubject <- read.table("UCI HAR Dataset/test/subject_test.txt", stringsAsFactor = F)
-..3. > names(testSubject) <- "Subject"
-..4. > names(trainSubject) <- "Subject"
+### > trainSubject <- read.table("UCI HAR Dataset/train/subject_train.txt", stringsAsFactor = F)
+### > testSubject <- read.table("UCI HAR Dataset/test/subject_test.txt", stringsAsFactor = F)
+### > names(testSubject) <- "Subject"
+### > names(trainSubject) <- "Subject"
 
 2. Imported the y files from *train* and *test* directories into separate variables and labeled them using the recode() function from the **car** package
-..1. > ytrain <- read.table("UCI HAR Dataset/train/y_train.txt", stringsAsFactor = F)
-..2. > ytest <- read.table("UCI HAR Dataset/test/y_test.txt", stringsAsFactor = F)
-..3. > ytrain <- recode(ytrain$V1, "'1' = 'Walking';
+### > ytrain <- read.table("UCI HAR Dataset/train/y_train.txt", stringsAsFactor = F)
+### > ytest <- read.table("UCI HAR Dataset/test/y_test.txt", stringsAsFactor = F)
+### > ytrain <- recode(ytrain$V1, "'1' = 'Walking';
 										'2' = 'Walking Upstairs';
 										'3' = 'Walking Downstairs';
 										'4' = 'Sitting';
 										'5' = 'Standing';
 										'6' = 'Laying'")
-..4. > ytest <- recode(ytest$V1, "'1' = 'Walking';
+### > ytest <- recode(ytest$V1, "'1' = 'Walking';
 										'2' = 'Walking Upstairs';
 										'3' = 'Walking Downstairs';
 										'4' = 'Sitting';
 										'5' = 'Standing';
 										'6' = 'Laying'")
-..5. > ytrain <- data.frame(ytrain)
-..6. > ytest <- data.frame(ytest)
-..7. > names(ytrain) <- "Activity"  *(renamed the column)*
-..8. > names(ytest) <- "Activity"    *(renamed the column)*
+### > ytrain <- data.frame(ytrain)
+### > ytest <- data.frame(ytest)
+### > names(ytrain) <- "Activity"  *(renamed the column)*
+### > names(ytest) <- "Activity"    *(renamed the column)*
 
 3. Imported the features text and with grep() found exactly which variable indices were needed in the tidy data (mean, standard deviation)
-..1. > features <- read.table("UCI HAR Dataset/features.txt", stringsAsFactor = F)
-..2. > variables <- sort(c(grep("mean()", features$V2, value = F, fixed = T),
+### > features <- read.table("UCI HAR Dataset/features.txt", stringsAsFactor = F)
+### > variables <- sort(c(grep("mean()", features$V2, value = F, fixed = T),
 							grep("std()", features$V2, value = F, fixed = T)))
-..3. > featurenames <- features[variables,]$V2    *(this created a vector of the names of the variables needed; used later)*
+### > featurenames <- features[variables,]$V2    *(this created a vector of the names of the variables needed; used later)*
 
 
 4.  Imported the X *train* and *test* datasets using the previously created _variables_ vector to subset the specific columns the labeled the columns
