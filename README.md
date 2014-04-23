@@ -13,8 +13,8 @@ Method to making run_analysis.R
 * reshape2
 
 
-# First Draft (before writing the script, do every step yourself)
-
+# First Draft
+####  I performed the following steps to manually create the requested datasets.  Hopefully it will shed some insight on my thought process
 
 ## Importing the Data
 ### Imported the subject list from both the *train* and *test* directories into separate variables
@@ -133,7 +133,7 @@ denoted by *mean()* and *std()*
 **tidyData** is the average of every variable sorted by the *Subject* and the *Activity* they are performing.
 ...since there are 6 activities and 30 subjects the final dimensions will be (6*30) 180 rows and (2+66) 68 columns  *(2 being the Subject and Activity columns)*
 
-# The script
+# The scripts
 
 ## run_analysis.R
 ###### run_analysis <- function(){
