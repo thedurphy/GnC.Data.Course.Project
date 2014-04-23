@@ -44,7 +44,9 @@ Method to making run_analysis.R
 7. > names(ytrain) <- "Activity"  *(renamed the column)*
 8. > names(ytest) <- "Activity"    *(renamed the column)*
 
-### 3.  Imported the features text and with *grep()* found exactly which variable indices were needed in the tidy data (mean, standard deviation)
+### 3.  Imported the features text and with *grep()* found exactly which variable indices were needed in the tidy data (mean, standard deviation).  
+
+######I chose the names that matched *mean()* and *std()*.  This resulted in 66 results.  There were features that included the word *mean* but I chose not to include them because there were implicitly placed in a separate category from the *features_info.txt* file included.  Also, for every *mean()*, there is a corresponding *std()* column.  Since the requested data asked for mean *and* standard deviation, it seemed logical to limit the data set to results that corresponded to each other in order to preserve information integrity.
 1. > features <- read.table("UCI HAR Dataset/features.txt", stringsAsFactor = F)
 2. > variables <- sort(c(grep("mean()", features$V2, value = F, fixed = T),
 							grep("std()", features$V2, value = F, fixed = T)))
