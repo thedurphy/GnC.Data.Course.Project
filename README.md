@@ -2,7 +2,7 @@ Method to making run_analysis.R
 ===============================
 # First Draft (before writing the script, do every step yourself)
 
-### **You will need to install and load the following packages
+### You will need to install and load the following packages
 * data.table
 * car
 * plyr
@@ -10,31 +10,31 @@ Method to making run_analysis.R
 
 
 ## Importing the Data
-1. Imported the subject list from both the *train* and *test* directories into separate variables
-### > trainSubject <- read.table("UCI HAR Dataset/train/subject_train.txt", stringsAsFactor = F)
-### > testSubject <- read.table("UCI HAR Dataset/test/subject_test.txt", stringsAsFactor = F)
-### > names(testSubject) <- "Subject"
-### > names(trainSubject) <- "Subject"
+## Imported the subject list from both the *train* and *test* directories into separate variables
+1. > trainSubject <- read.table("UCI HAR Dataset/train/subject_train.txt", stringsAsFactor = F)
+2. > testSubject <- read.table("UCI HAR Dataset/test/subject_test.txt", stringsAsFactor = F)
+3. > names(testSubject) <- "Subject"
+4. > names(trainSubject) <- "Subject"
 
-2. Imported the y files from *train* and *test* directories into separate variables and labeled them using the recode() function from the **car** package
-### > ytrain <- read.table("UCI HAR Dataset/train/y_train.txt", stringsAsFactor = F)
-### > ytest <- read.table("UCI HAR Dataset/test/y_test.txt", stringsAsFactor = F)
-### > ytrain <- recode(ytrain$V1, "'1' = 'Walking';
+## Imported the y files from *train* and *test* directories into separate variables and labeled them using the recode() function from the **car** package
+1. > ytrain <- read.table("UCI HAR Dataset/train/y_train.txt", stringsAsFactor = F)
+2. > ytest <- read.table("UCI HAR Dataset/test/y_test.txt", stringsAsFactor = F)
+3. > ytrain <- recode(ytrain$V1, "'1' = 'Walking';
 										'2' = 'Walking Upstairs';
 										'3' = 'Walking Downstairs';
 										'4' = 'Sitting';
 										'5' = 'Standing';
 										'6' = 'Laying'")
-### > ytest <- recode(ytest$V1, "'1' = 'Walking';
+4. > ytest <- recode(ytest$V1, "'1' = 'Walking';
 										'2' = 'Walking Upstairs';
 										'3' = 'Walking Downstairs';
 										'4' = 'Sitting';
 										'5' = 'Standing';
 										'6' = 'Laying'")
-### > ytrain <- data.frame(ytrain)
-### > ytest <- data.frame(ytest)
-### > names(ytrain) <- "Activity"  *(renamed the column)*
-### > names(ytest) <- "Activity"    *(renamed the column)*
+5. > ytrain <- data.frame(ytrain)
+6. > ytest <- data.frame(ytest)
+7. > names(ytrain) <- "Activity"  *(renamed the column)*
+8. > names(ytest) <- "Activity"    *(renamed the column)*
 
 3. Imported the features text and with grep() found exactly which variable indices were needed in the tidy data (mean, standard deviation)
 ### > features <- read.table("UCI HAR Dataset/features.txt", stringsAsFactor = F)
