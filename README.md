@@ -72,37 +72,37 @@ Method to making run_analysis.R
 
 # Explanation of the **oneSet** and **tidyData** data-sets and their Variables
 
-1. The main variables of the Data Sets are the following.
-2. Subject   *which # out of 30 individuals*
-3. Activity  *the specific activity the individual is doing*
+## The main variables of the Data Sets are the following.
+1. Subject   *which # out of 30 individuals*
+2. Activity  *the specific activity the individual is doing*
 
-4. tBodyAcc-XYZ
-5. tGravityAcc-XYZ
-6. tBodyAccJerk-XYZ
-7. tBodyGyro-XYZ
-8. tBodyGyroJerk-XYZ
-9. tBodyAccMag
-10. tGravityAccMag
-11. tBodyAccJerkMag
-12. tBodyGyroMag
-13. tBodyGyroJerkMag
-14. fBodyAcc-XYZ
-15. fBodyAccJerk-XYZ
-16. fBodyGyro-XYZ
-17. fBodyAccMag
-18. fBodyAccJerkMag
-19. fBodyGyroMag
-20. fBodyGyroJerkMag
+3. tBodyAcc-XYZ
+4. tGravityAcc-XYZ
+5. tBodyAccJerk-XYZ
+6. tBodyGyro-XYZ
+7. tBodyGyroJerk-XYZ
+8. tBodyAccMag
+9. tGravityAccMag
+10. tBodyAccJerkMag
+11. tBodyGyroMag
+12. tBodyGyroJerkMag
+13. fBodyAcc-XYZ
+14. fBodyAccJerk-XYZ
+15. fBodyGyro-XYZ
+16. fBodyAccMag
+17. fBodyAccJerkMag
+18. fBodyGyroMag
+19. fBodyGyroJerkMag
 
 * A couple of things to note
-..1.  the 'XYZ' denotes the 3 dimensions of data being recorded so they will have their own columns
-..2.  For expediency, the data sets will only include the *mean* and the *standard deviation* columns from the primary raw data which were 
+1.  the 'XYZ' denotes the 3 dimensions of data being recorded so they will have their own columns
+2.  For expediency, the data sets will only include the *mean* and the *standard deviation* columns from the primary raw data which were 
 denoted by *mean()* and *std()*
-..3. For example: the first column of the data-sets were *originally* **tBodyAcc-mean()-X**
-..4. For tidiness, it has been converted into **tBodyAccmeanY**
+3. For example: the first column of the data-sets were *originally* **tBodyAcc-mean()-X**
+4. For tidiness, it has been converted into **tBodyAccmeanY**
 
-*Let's move left to right on the variables to define what they mean.
-Examples:
+* Let's move left to right on the variables to define what they mean.
+####Examples:
 1. tBodyAccmeanY
 2. fBodyBodyGyroJerkMagstd
 3. tGravityAccmeanX
