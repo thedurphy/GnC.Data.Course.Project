@@ -14,7 +14,7 @@ Method to making run_analysis.R
 
 
 # First Draft
-####  I performed the following steps to manually create the requested datasets.  Hopefully it will shed some insight on my thought process
+####  I performed the following steps manually to create the requested datasets.  Hopefully it will shed some insight on my thought process
 
 ## Importing the Data
 ### Imported the subject list from both the *train* and *test* directories into separate variables
@@ -81,8 +81,8 @@ Method to making run_analysis.R
 # Explanation of the *oneSet* and *tidyData* data-sets and their Variables
 
 ## The main variables of the Data Sets are the following.
-1. Subject   *which # out of 30 individuals*
-2. Activity  *the specific activity the individual is doing*
+1. Subject   *(which # out of 30 individuals)*
+2. Activity  *(the specific activity the individual is doing)*
 
 3. tBodyAcc-XYZ
 4. tGravityAcc-XYZ
