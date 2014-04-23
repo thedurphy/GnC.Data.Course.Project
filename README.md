@@ -15,7 +15,7 @@ Method to making run_analysis.R
 3. > names(testSubject) <- "Subject"
 4. > names(trainSubject) <- "Subject"
 
-### Imported the y files from *train* and *test* directories into separate variables and labeled them using the recode() function from the **car** package
+### Imported the y files from *train* and *test* directories into separate variables and labeled them using the *recode()* function from the **car** package
 1. > ytrain <- read.table("UCI HAR Dataset/train/y_train.txt", stringsAsFactor = F)
 2. > ytest <- read.table("UCI HAR Dataset/test/y_test.txt", stringsAsFactor = F)
 3. > ytrain <- recode(ytrain$V1, "'1' = 'Walking';
