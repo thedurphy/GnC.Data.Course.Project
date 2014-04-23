@@ -9,13 +9,13 @@ Method to making run_analysis.R
 
 
 ## Importing the Data
-## Imported the subject list from both the *train* and *test* directories into separate variables
+### Imported the subject list from both the *train* and *test* directories into separate variables
 1. > trainSubject <- read.table("UCI HAR Dataset/train/subject_train.txt", stringsAsFactor = F)
 2. > testSubject <- read.table("UCI HAR Dataset/test/subject_test.txt", stringsAsFactor = F)
 3. > names(testSubject) <- "Subject"
 4. > names(trainSubject) <- "Subject"
 
-## Imported the y files from *train* and *test* directories into separate variables and labeled them using the recode() function from the **car** package
+### Imported the y files from *train* and *test* directories into separate variables and labeled them using the recode() function from the **car** package
 1. > ytrain <- read.table("UCI HAR Dataset/train/y_train.txt", stringsAsFactor = F)
 2. > ytest <- read.table("UCI HAR Dataset/test/y_test.txt", stringsAsFactor = F)
 3. > ytrain <- recode(ytrain$V1, "'1' = 'Walking';
@@ -35,14 +35,14 @@ Method to making run_analysis.R
 7. > names(ytrain) <- "Activity"  *(renamed the column)*
 8. > names(ytest) <- "Activity"    *(renamed the column)*
 
-## Imported the features text and with grep() found exactly which variable indices were needed in the tidy data (mean, standard deviation)
+### Imported the features text and with grep() found exactly which variable indices were needed in the tidy data (mean, standard deviation)
 1. > features <- read.table("UCI HAR Dataset/features.txt", stringsAsFactor = F)
 2. > variables <- sort(c(grep("mean()", features$V2, value = F, fixed = T),
 							grep("std()", features$V2, value = F, fixed = T)))
 3. > featurenames <- features[variables,]$V2    *(this created a vector of the names of the variables needed; used later)*
 
 
-##  Imported the X *train* and *test* datasets using the previously created _variables_ vector to subset the specific columns the labeled the columns
+###  Imported the X *train* and *test* datasets using the previously created _variables_ vector to subset the specific columns the labeled the columns
 1. > xtrain <- read.table("UCI HAR Dataset/train/X_train.txt")[variables]
 2. > xtest <- read.table("UCI HAR Dataset/test/X_test.txt")[variables]
 3. > names(xtrain) <- featurenames
@@ -69,7 +69,7 @@ Method to making run_analysis.R
 ### If the columns are not in the same order as *oneSet*, try this.
 4. > tidyData <- tidyData[c(OSnames)]     *(here is where you use the variable *oSnames* to reorder the columns to the original)*
 
-# Explanation of the **oneSet** and **tidyData** data-sets and their Variables
+# Explanation of the *oneSet* and *tidyData* data-sets and their Variables
 
 ## The main variables of the Data Sets are the following.
 1. Subject   *which # out of 30 individuals*
