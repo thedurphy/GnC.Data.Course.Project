@@ -65,7 +65,7 @@ Method to making run_analysis.R
 
 ## Creating a seperate tidy dataset that shows the means of all the variables sorted by subjects and their respective activity
 1. > molten = melt(oneSet, id = c("Subject", "Activity"))   
-1. *(this collapses the data set into a long skinny dataset based on "subjects" and "activity")*
+..1. *(this collapses the data set into a long skinny dataset based on "subjects" and "activity")*
 2. > names(molten) <- c("Subject", "Activity", "Variable", "Value")  *(made easily recognizable column names)*
 3. > tidyData = dcast(molten, formula = Subject + Activity ~ Variable, value.var = "Value", mean)     *(made DF of the variable-means based on Subject and Activity)*
 ### If the columns are not in the same order as *oneSet*, try this.
