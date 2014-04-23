@@ -36,39 +36,39 @@ Method to making run_analysis.R
 7. > names(ytrain) <- "Activity"  *(renamed the column)*
 8. > names(ytest) <- "Activity"    *(renamed the column)*
 
-3. Imported the features text and with grep() found exactly which variable indices were needed in the tidy data (mean, standard deviation)
-### > features <- read.table("UCI HAR Dataset/features.txt", stringsAsFactor = F)
-### > variables <- sort(c(grep("mean()", features$V2, value = F, fixed = T),
+## Imported the features text and with grep() found exactly which variable indices were needed in the tidy data (mean, standard deviation)
+1. > features <- read.table("UCI HAR Dataset/features.txt", stringsAsFactor = F)
+2. > variables <- sort(c(grep("mean()", features$V2, value = F, fixed = T),
 							grep("std()", features$V2, value = F, fixed = T)))
-### > featurenames <- features[variables,]$V2    *(this created a vector of the names of the variables needed; used later)*
+3. > featurenames <- features[variables,]$V2    *(this created a vector of the names of the variables needed; used later)*
 
 
-4.  Imported the X *train* and *test* datasets using the previously created _variables_ vector to subset the specific columns the labeled the columns
-..1. > xtrain <- read.table("UCI HAR Dataset/train/X_train.txt")[variables]
-..2. > xtest <- read.table("UCI HAR Dataset/test/X_test.txt")[variables]
-..3. > names(xtrain) <- featurenames
-..4. > names(xtest) <- featurenames
+##  Imported the X *train* and *test* datasets using the previously created _variables_ vector to subset the specific columns the labeled the columns
+1. > xtrain <- read.table("UCI HAR Dataset/train/X_train.txt")[variables]
+2. > xtest <- read.table("UCI HAR Dataset/test/X_test.txt")[variables]
+3. > names(xtrain) <- featurenames
+4. > names(xtest) <- featurenames
 
 ## Arranging the datasets into 1
 
-1. Combined all the *train* sets; combined all the *test* sets   (by column)
-..1. > trainSet <- data.frame(trainSubject, ytrain, xtrain)
-..2. > testSet <- data.frame(testSubject, ytest, xtest)
+### Combined all the *train* sets; combined all the *test* sets   (by column)
+1. > trainSet <- data.frame(trainSubject, ytrain, xtrain)
+2. > testSet <- data.frame(testSubject, ytest, xtest)
 
-2. Combined the remaining sets into one, by row
-..1. > oneSet <- rbind(trainSet, testSet)
-..2. > oneSet$Activity <- levels(oneSet$Activity)[oneSet$Activity]   (the recode() turns the Activity column into factors, this returns it to characters)
-### Now I will rename the columns of **oneSet** so it looks a little tidier.  
-..3. > oSnames <- names(oneSet)
-..4. > oSnames <- gsub("[.]", "", oSnames)                *(removed the periods)*
-..5. > names(oneSet) <- oSnames                   *(oSnames is a vector of the column names in the final data sets)*
+###. Combined the remaining sets into one, by row
+1. > oneSet <- rbind(trainSet, testSet)
+2. > oneSet$Activity <- levels(oneSet$Activity)[oneSet$Activity]   (the recode() turns the Activity column into factors, this returns it to characters)
+#### Now I will rename the columns of **oneSet** so it looks a little tidier.  
+3. > oSnames <- names(oneSet)
+4. > oSnames <- gsub("[.]", "", oSnames)                *(removed the periods)*
+5. > names(oneSet) <- oSnames                   *(oSnames is a vector of the column names in the final data sets)*
 
 ## Creating a seperate tidy dataset that shows the means of all the variables sorted by subjects and their respective activity
-..1. > molten = melt(oneSet, id = c("Subject", "Activity"))   *(this collapses the data set into a long skinny dataset based on "subjects" and "activity")*
-..2. > names(molten) <- c("Subject", "Activity", "Variable", "Value")  (made easily recognizable column names)
-..3. > tidyData = dcast(molten, formula = Subject + Activity ~ Variable, value.var = "Value", mean)     *(made DF of the variable-means based on Subject and Activity)*
+1. > molten = melt(oneSet, id = c("Subject", "Activity"))   *(this collapses the data set into a long skinny dataset based on "subjects" and "activity")*
+2. > names(molten) <- c("Subject", "Activity", "Variable", "Value")  (made easily recognizable column names)
+3. > tidyData = dcast(molten, formula = Subject + Activity ~ Variable, value.var = "Value", mean)     *(made DF of the variable-means based on Subject and Activity)*
 ### If the columns are not in the same order as *oneSet*, try this.
-..4. > tidyData <- tidyData[c(OSnames)]     *(here is where you use the variable *oSnames* to reorder the columns to the original)*
+4. > tidyData <- tidyData[c(OSnames)]     *(here is where you use the variable *oSnames* to reorder the columns to the original)*
 
 # Explanation of the **oneSet** and **tidyData** data-sets and their Variables
 
