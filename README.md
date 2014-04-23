@@ -180,6 +180,7 @@ denoted by *mean()* and *std()*
 ###### molten = melt(oneSet, id = c("Subject", "Activity"))
 ###### names(molten) <- c("Subject", "Activity", "Variable", "Value")
 ###### tidyData <<- dcast(molten, formula = Subject + Activity ~ Variable, value.var = "Value", mean)
+###### write.table(tidyData, file = "tidyData.txt")
 ###### View(tidyData)
 ###### }
 
@@ -228,5 +229,6 @@ denoted by *mean()* and *std()*
 ###### molten = melt(oneSet, id = c("Subject", "Activity"))
 ###### names(molten) <- c("Subject", "Activity", "Variable", "Value")
 ###### tidyData <<- dcast(molten, formula = Subject + Activity ~ Variable, value.var = "Value", mean)
+###### write.table(tidyData, file = file.choose(new = T))
 ###### View(tidyData)
 ###### }
