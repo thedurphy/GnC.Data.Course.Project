@@ -102,18 +102,18 @@ denoted by *mean()* and *std()*
 4. For tidiness, it has been converted into **tBodyAccmeanY**
 
 #### Let's move left to right on the variables to define what they mean.
-###### Examples:
+##### Examples:
 1. tBodyAccmeanY
 2. fBodyBodyGyroJerkMagstd
 3. tGravityAccmeanX
 
-1. the first letter (t or f) denotes '(t)time domain signal' or whether '(f)Fast Fourier  Transform (FFT)' was applied to it
-2. the results within the '(t) time domain signals' were then separated into 'Body' and 'Gravity' measurements as you can see in Examples 1 & 2
-3. the 3rd part of the variable denotes which piece of equiptment from the cellphone was used for recording the data:
-4. Acc = Accelerometer; Gyro = Gyroscope
-5. the variables with 'Jerk' denotes a values derived from body linear acceleration and angular velocity over time
-6. the next part shows whether the value is the 'Mean' or the 'Standard Deviation'; mean, std, respectively
-7. if the variable has an X, Y, or Z, it denotes the dimensional component being measured
+###### the first letter (t or f) denotes '(t)time domain signal' or whether '(f)Fast Fourier  Transform (FFT)' was applied to it
+###### the results within the '(t) time domain signals' were then separated into 'Body' and 'Gravity' measurements as you can see in Examples 1 & 2
+###### the 3rd part of the variable denotes which piece of equiptment from the cellphone was used for recording the data:
+###### Acc = Accelerometer; Gyro = Gyroscope
+###### the variables with 'Jerk' denotes a values derived from body linear acceleration and angular velocity over time
+###### the next part shows whether the value is the 'Mean' or the 'Standard Deviation'; mean, std, respectively
+###### if the variable has an X, Y, or Z, it denotes the dimensional component being measured
 
 #### The Data Sets
 
