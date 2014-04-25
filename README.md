@@ -179,7 +179,7 @@ denoted by *mean()* and *std()*
 **tidyData** is the average of every variable sorted by the *Subject* and the *Activity* they are performing.
 ...since there are 6 activities and 30 subjects the final dimensions will be (6*30) 180 rows and (2+66) 68 columns  *(2 being the Subject and Activity columns)*
 
-###**The Original CodeBook** that gives a detailed explanation of the variables is can be found [here](../blob/master/CodeBook.md)
+###**The Original CodeBook** that gives a detailed explanation of the variables is can be found [here](../master/CodeBook.md)
 
 # The scripts  <a name = "scripts"></a>
 
