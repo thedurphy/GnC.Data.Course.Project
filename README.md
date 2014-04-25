@@ -182,9 +182,10 @@ denoted by *mean()* and *std()*
 ###**The Original CodeBook** that gives a detailed explanation of the variables is can be found [here](../blob/master/CodeBook.md)
 
 # The scripts  <a name = "scripts"></a>
-[back up top](#top)
 
 ## run_analysis.R <a name = "ra1"></a>
+[back up top](#top)
+
 `source("https://raw.githubusercontent.com/thedurphy/GnC.Data.Course.Project/master/run_analysis.R")`
 `run_analysis()`
 
