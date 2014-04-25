@@ -188,7 +188,7 @@ denoted by *mean()* and *std()*
 `source("https://raw.githubusercontent.com/thedurphy/GnC.Data.Course.Project/master/run_analysis.R")`
 `run_analysis()`
 
-'run_analysis <- function(){
+`run_analysis <- function(){
     require(data.table)
 	require(reshape2)
 	require(car)
@@ -233,7 +233,7 @@ denoted by *mean()* and *std()*
  names(molten) <- c("Subject", "Activity", "Variable", "Value")
  tidyData <<- dcast(molten, formula = Subject + Activity ~ Variable, value.var = "Value", mean)
  View(tidyData)
- }'
+ }`
 
 ## run_analysis2.R <a name = "ra2"></a>
 [back up top](#top)
