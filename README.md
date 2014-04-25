@@ -1,4 +1,4 @@
-Method to making run_analysis.R     <a name = "top"></a>
+Method to making run_analysis.R  
 ===============================
 
 ### Table of Contents
@@ -30,7 +30,7 @@ Method to making run_analysis.R     <a name = "top"></a>
 
 
 # First Draft <a name = "firstdraft"></a>
-[back up top](#top)
+[back up top](../master/README.md)
 
 > Before writing the script, I performed the following codes manually to create the desired data frames.  By doing it manually and step-by-step, I was able to experiment and find the most efficient way.
 
@@ -93,7 +93,7 @@ Method to making run_analysis.R     <a name = "top"></a>
 5. `> names(oneSet) <- oSnames`                   *(oSnames is a vector of the column names in the final data sets)*
 
 ## Creating a separate tidy dataset that shows the means of all the variables sorted by subjects and their respective activity <a name = "tidydata"></a>
-[back up top](#top)
+[back up top](../master/README.md)
 
 1. `> molten = melt(oneSet, id = c("Subject", "Activity"))`   *(this collapses the data set into a long skinny dataset based on "subjects" and "activity")*
 2. `> names(molten) <- c("Subject", "Activity", "Variable", "Value")`  *(made easily recognizable column names)*
@@ -102,10 +102,10 @@ Method to making run_analysis.R     <a name = "top"></a>
 4. `> tidyData <- tidyData[c(OSnames)]`     *(here is where you use the variable **oSnames** to reorder the columns to the original)*
 
 # Explanation of the *oneSet* and *tidyData* data-sets and their Variables <a name = "explanation"></a>
-[back up top](#top)
+[back up top](../master/README.md)
 
 ## The main variables of the Data Sets <a name = "variables"></a>
-[back up top](#top)
+[back up top](../master/README.md)
  
 They are the following...
 
@@ -169,7 +169,7 @@ denoted by *mean()* and *std()*
    component being measured
 
 ## The Data Sets <a name = "datasets"></a>
-[back up top](#top)
+[back up top](../master/README.md)
 
 ..There are 2 data sets the script will out put into the Global Environment to work with: **oneSet** and **tidyData** (tidyData will be opened to View)
 
@@ -184,7 +184,7 @@ denoted by *mean()* and *std()*
 # The scripts  <a name = "scripts"></a>
 
 ## run_analysis.R <a name = "ra1"></a>
-[back up top](#top)
+[back up top](../master/README.md)
 
 `source("https://raw.githubusercontent.com/thedurphy/GnC.Data.Course.Project/master/run_analysis.R")`
 `run_analysis()`
@@ -284,7 +284,7 @@ denoted by *mean()* and *std()*
  `}`
 
 ## run_analysis2.R <a name = "ra2"></a>
-[back up top](#top)
+[back up top](../master/README.md)
 
 `source("https://raw.githubusercontent.com/thedurphy/GnC.Data.Course.Project/master/run_analysis2.r")`
 `run_analysis2()`
@@ -382,4 +382,4 @@ denoted by *mean()* and *std()*
  `write.table(tidyData, file = file.choose(new = T))`
 
  `}`
- 
+ [back up top](../master/README.md)
