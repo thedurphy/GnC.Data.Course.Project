@@ -187,6 +187,7 @@ denoted by *mean()* and *std()*
 [back up top](../master/README.md)
 
 `source("https://raw.githubusercontent.com/thedurphy/GnC.Data.Course.Project/master/run_analysis.R")`
+
 `run_analysis()`
 
 `run_analysis <- function(){`
@@ -286,7 +287,8 @@ denoted by *mean()* and *std()*
 ## run_analysis2.R <a name = "ra2"></a>
 [back up top](../master/README.md)
 
-`source("https://raw.githubusercontent.com/thedurphy/GnC.Data.Course.Project/master/run_analysis2.r")`
+`source("https://raw.githubusercontent.com/thedurphy/GnC.Data.Course.Project/master/run_analysis2.R")`
+
 `run_analysis2()`
 
 `run_analysis2 <- function(){`
