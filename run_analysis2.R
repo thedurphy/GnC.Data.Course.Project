@@ -67,6 +67,6 @@ molten = melt(oneSet, id = c("Subject", "Activity"))  ##  Collapses 'oneSet' to 
 names(molten) <- c("Subject", "Activity", "Variable", "Value")  ## This step is necessary but I just renamed the collapsed dataset columns
 ##  The final part reforms the data row-wise by 'Subject' and 'Activity' then column-wise by the 'Variables', then takes the mean according to ##  the group
 tidyData <<- dcast(molten, formula = Subject + Activity ~ Variable, value.var = "Value", mean)
-write.table(tidyData, file = readline(prompt = "file name? (include extension) >"))
+write.table(tidyData, file = readline(prompt = "What would you like to save the file as? (include file extension; ie. .txt; and no quotations) >"))
 View(tidyData)  ##  This brings up the 'tidyData' in the preview window
 } 
