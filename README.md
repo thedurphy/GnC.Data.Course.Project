@@ -381,7 +381,7 @@ denoted by *mean()* and *std()*
 
  `View(tidyData)`
 
- `write.table(tidyData, file = file.choose(new = T))`
+ `write.table(tidyData, file = readline(prompt = "What would you like to save the file as? (include file extension; ie. .txt; and no quotations) >"))`
 
  `}`
  [back up top](../master/README.md)
