@@ -70,7 +70,7 @@ Method to making run_analysis.R
 3. `> featurenames <- features[variables,]$V2`    *(this created a vector of the names of the variables needed; used later)*
 
 
-###  Imported the X *train* and *test* datasets using the previously created _variables_ vector to subset the specific columns the labeled the columns
+###  Imported the X *train* and *test* datasets using the previously created _variables_ vector to subset the specific columns and then labeled the columns
 1. `> xtrain <- read.table("UCI HAR Dataset/train/X_train.txt")[variables]`
 2. `> xtest <- read.table("UCI HAR Dataset/test/X_test.txt")[variables]`
 3. `> names(xtrain) <- featurenames`
