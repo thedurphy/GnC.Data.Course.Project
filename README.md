@@ -64,6 +64,8 @@ Method to making run_analysis.R
 8. `> names(ytest) <- "Activity"`    *(renamed the column)*
 
 ### Imported the features text and with *grep()* found exactly which variable indices were needed in the tidy data (mean, standard deviation)
+> For this part I chose only features with the suffixes *mean()* and *std()* but not features like this: *angle(tBodyAccJerkMean),gravityMean)*.  My reasoning for this is because the latter values were a result of combining the *gravityMean* AND *tBodyAccJerkMean* results together with respect to *angle*.  This does not mean the value is the **mean** of something.  In addition, the assignment asked for the *means* and *standard deviations*.  Both *mean()* and *std()* results correspond with one another where the latter feature does not have a *standard deviation* correspondence.  This led me to believe that only using *mean()* and *std()* results in the final datasets would uphold information integrity.
+
 1. `> features <- read.table("UCI HAR Dataset/features.txt", stringsAsFactor = F)`
 2. `> variables <- sort(c(grep("mean()", features$V2, value = F, fixed = T),`
 							`grep("std()", features$V2, value = F, fixed = T)))`
